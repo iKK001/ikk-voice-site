@@ -1,0 +1,137 @@
+/* iKK Voice website — no external fonts, scripts or trackers. */
+:root {
+  --brand: #0099cc;
+  --brand-strong: #0086b3;
+  --ink-blue: #006688;
+  --tint: #d4edfc;
+  --bg: #ffffff;
+  --surface: #f3f8fb;
+  --text: #14222b;
+  --muted: #4a5c66;
+  --line: #d9e4ea;
+  --link: #006688;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e171c;
+    --surface: #16232a;
+    --text: #e8f1f5;
+    --muted: #a9bcc6;
+    --line: #26363f;
+    --link: #6fd0f2;
+    --tint: #15394a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 1.125rem/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+a { color: var(--link); text-underline-offset: 0.15em; }
+a:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 4px; }
+
+.skip {
+  position: absolute; left: -9999px;
+}
+.skip:focus { left: 1rem; top: 1rem; background: var(--bg); padding: 0.5rem 1rem; z-index: 10; }
+
+.wrap { max-width: 68rem; margin: 0 auto; padding-inline: 1.25rem; }
+.narrow { max-width: 46rem; }
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--line); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-block: 0.9rem; }
+.brand { display: flex; align-items: center; gap: 0.6rem; color: var(--text); text-decoration: none; font-weight: 700; font-size: 1.2rem; }
+.brand img { width: 2.25rem; height: 2.25rem; border-radius: 22%; }
+.site-header nav { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.site-header nav a { text-decoration: none; font-weight: 600; }
+.site-header nav a[aria-current="page"] { text-decoration: underline; }
+
+/* Hero */
+.hero {
+  background: linear-gradient(180deg, var(--brand) 0%, var(--ink-blue) 100%);
+  color: #fff;
+  padding-block: 4.5rem 5rem;
+  text-align: center;
+}
+.hero img { width: 7.5rem; height: 7.5rem; border-radius: 22%; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25); }
+.hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); line-height: 1.1; margin: 1.5rem 0 0.75rem; letter-spacing: -0.02em; }
+.hero p { font-size: clamp(1.15rem, 2.5vw, 1.4rem); max-width: 40rem; margin: 0 auto; color: #e6f6fd; }
+.badge {
+  display: inline-block; margin-top: 2rem; padding: 0.85rem 1.6rem; border-radius: 999px;
+  background: #fff; color: var(--ink-blue); font-weight: 700; text-decoration: none;
+}
+
+/* Sections */
+section { padding-block: 3.5rem; }
+section + section { border-top: 1px solid var(--line); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); line-height: 1.2; margin: 0 0 1.25rem; letter-spacing: -0.01em; }
+h3 { font-size: 1.25rem; margin: 0 0 0.4rem; }
+.lead { font-size: 1.25rem; color: var(--muted); max-width: 46rem; margin-top: 0; }
+
+.grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin-top: 1.75rem; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 1.4rem 1.5rem; }
+.card p { margin: 0; color: var(--muted); }
+
+ul.checks { padding-left: 0; list-style: none; display: grid; gap: 0.6rem; }
+ul.checks li { padding-left: 1.9rem; position: relative; }
+ul.checks li::before {
+  content: ""; position: absolute; left: 0; top: 0.35em; width: 1.1rem; height: 1.1rem; border-radius: 50%;
+  background: var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/80% no-repeat;
+}
+
+.note { background: var(--tint); border-radius: 0.75rem; padding: 1rem 1.25rem; }
+
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 2rem; }
+.badges .badge { margin-top: 0; }
+
+/* Platform comparison */
+.platforms { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); margin-top: 1.75rem; }
+.platform { border-radius: 1rem; padding: 1.5rem 1.6rem; border: 2px solid var(--line); background: var(--surface); }
+.platform.apple { border-color: var(--brand); }
+.platform .tag {
+  display: inline-block; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.02em;
+  padding: 0.2rem 0.7rem; border-radius: 999px; margin-bottom: 0.75rem;
+}
+.platform.apple .tag { background: var(--brand); color: #fff; }
+.platform.android .tag { background: var(--line); color: var(--text); }
+.platform h3 { font-size: 1.4rem; margin-bottom: 0.6rem; }
+.platform p { margin: 0 0 0.75rem; }
+.platform ul { margin: 0; padding-left: 1.2rem; }
+.platform li + li { margin-top: 0.3rem; }
+
+table.matrix { min-width: 30rem; }
+table.matrix tbody th { background: none; font-weight: 400; }
+table.matrix th:not(:first-child), table.matrix td:not(:first-child) { text-align: center; width: 6.5rem; }
+td.yes { color: #0a7a3c; font-weight: 700; }
+td.no { color: var(--muted); }
+@media (prefers-color-scheme: dark) { td.yes { color: #5fd38d; } }
+.footnote { font-size: 0.95rem; color: var(--muted); }
+
+/* Legal text */
+.legal h1 { font-size: clamp(2rem, 5vw, 2.6rem); line-height: 1.15; margin: 2.5rem 0 0.5rem; }
+.legal h2 { font-size: 1.4rem; margin: 2.25rem 0 0.6rem; }
+.legal .meta { color: var(--muted); margin-top: 0; }
+.legal ul { padding-left: 1.3rem; }
+.legal li + li { margin-top: 0.35rem; }
+
+.table-scroll { overflow-x: auto; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 1rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.65rem 0.75rem; border-bottom: 1px solid var(--line); }
+th { background: var(--surface); }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; margin-top: 2rem; color: var(--muted); font-size: 1rem; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; justify-content: space-between; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: 1.25rem; }
