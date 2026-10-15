@@ -15,7 +15,10 @@ external fonts, scripts or trackers.
 2. Repo → Settings → Pages → Source: *Deploy from a branch*, Branch: `main` / `(root)`.
 3. The site appears at `https://<user>.github.io/<repo>/` after a minute.
 
-## Custom domain (optional)
+## Custom domain
 
-1. At your DNS provider add a `CNAME` record, e.g. `ikkvoice` → `<user>.github.io`.
-2. Repo → Settings → Pages → Custom domain: `ikkvoice.ideenkaffee.ch`, then tick *Enforce HTTPS*.
+The site is served as `https://voice.ideenkaffee.ch/` (file `CNAME`).
+
+1. At Hoststar add a DNS `CNAME` record: `voice` → `ikk001.github.io`.
+2. Repo → Settings → Pages → Custom domain: `voice.ideenkaffee.ch`, then tick *Enforce HTTPS*
+   once the certificate is issued (a few minutes after DNS resolves).
