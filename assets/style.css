@@ -155,3 +155,13 @@ th { background: var(--surface); }
 .lang-switch li a:hover, .lang-switch li a:focus-visible { background: var(--surface); outline: none; }
 .lang-switch li a[aria-current="true"] { font-weight: 700; }
 .lang-switch li a[aria-current="true"]::after { content: " ✓"; color: var(--brand); }
+
+/* Company logo in the Impressum: white card so the black wordmark stays legible in dark mode */
+.impressum-logo { display: inline-block; background: #fff; padding: 0.75rem 1rem; border-radius: 0.75rem; margin: 0.25rem 0 1rem; }
+.impressum-logo img { display: block; width: 14rem; max-width: 100%; height: auto; }
+
+/* Speech-service providers (landing page) */
+.providers .card h3 a { text-decoration: none; }
+.providers .card h3 a::after { content: " ↗"; font-size: 0.8em; color: var(--muted); }
+.providers .card .url { display: block; margin-top: 0.6rem; font-size: 0.95rem; word-break: break-all; }
+.providers { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
