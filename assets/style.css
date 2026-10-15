@@ -165,3 +165,6 @@ th { background: var(--surface); }
 .providers .card h3 a::after { content: " ↗"; font-size: 0.8em; color: var(--muted); }
 .providers .card .url { display: block; margin-top: 0.6rem; font-size: 0.95rem; word-break: break-all; }
 .providers { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.impressum-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+.impressum-row p { margin: 0; }
+.impressum-row .impressum-logo { margin: 0; }
