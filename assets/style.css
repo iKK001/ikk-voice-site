@@ -44,7 +44,8 @@ a:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-r
 }
 .skip:focus { left: 1rem; top: 1rem; background: var(--bg); padding: 0.5rem 1rem; z-index: 10; }
 
-.wrap { max-width: 68rem; margin: 0 auto; padding-inline: 1.25rem; }
+/* Wide enough for the five mode cards in one row (the last one double width). */
+.wrap { max-width: 90rem; margin: 0 auto; padding-inline: 1.25rem; }
 .narrow { max-width: 46rem; }
 
 /* Header */
@@ -81,7 +82,17 @@ h3 { font-size: 1.25rem; margin: 0 0 0.4rem; }
 .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin-top: 1.75rem; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 1.4rem 1.5rem; }
 .card p { margin: 0; color: var(--muted); }
-/* Card that points at a companion app: its icon and store link */
+/* Card that points at a companion app: twice as wide (it has the most text),
+   with its icon and store link. Single column on narrow screens. */
+.card-app { grid-column: span 2; }
+@media (max-width: 36rem) { .card-app { grid-column: auto; } }
+/* Wide screens: all five modes in one row, the fifth twice as wide. */
+@media (min-width: 62rem) {
+  .grid.modes { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .grid.modes .card { padding: 1.2rem 1.1rem; }
+  .grid.modes .card h3 { font-size: 1.1rem; }
+  .grid.modes .card p { font-size: 1rem; }
+}
 .card-app .app-link {
   display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem; padding: 0.6rem 0.8rem;
   border-radius: 0.75rem; background: var(--bg); border: 1px solid var(--line); text-decoration: none; font-weight: 700;
