@@ -81,6 +81,13 @@ h3 { font-size: 1.25rem; margin: 0 0 0.4rem; }
 .grid { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin-top: 1.75rem; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: 1rem; padding: 1.4rem 1.5rem; }
 .card p { margin: 0; color: var(--muted); }
+/* Card that points at a companion app: its icon and store link */
+.card-app .app-link {
+  display: flex; align-items: center; gap: 0.75rem; margin-top: 1rem; padding: 0.6rem 0.8rem;
+  border-radius: 0.75rem; background: var(--bg); border: 1px solid var(--line); text-decoration: none; font-weight: 700;
+}
+.card-app .app-link img { width: 3rem; height: 3rem; border-radius: 22%; flex: none; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); }
+.card-app .app-link:hover, .card-app .app-link:focus-visible { border-color: var(--brand); }
 
 ul.checks { padding-left: 0; list-style: none; display: grid; gap: 0.6rem; }
 ul.checks li { padding-left: 1.9rem; position: relative; }
